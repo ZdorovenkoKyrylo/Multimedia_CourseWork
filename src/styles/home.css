@@ -1,0 +1,301 @@
+/* /styles/home.css */
+
+/* General layout */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  /* Gradient background: green mixed with light-blue */
+  background: linear-gradient(135deg, #a8e6cf, #d0f0fd);
+}
+
+/* Main container */
+.main-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  flex-wrap: wrap;
+  min-height: 100vh; /* ensure full height */
+}
+
+/* Right panel */
+.right-panel {
+  width: 20%;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Assistant panel */
+.assistant-panel {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  min-height: 180px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.assistant-panel textarea {
+  width: 100%;
+  height: 70px;
+  margin-bottom: 10px;
+  resize: none;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.assistant-panel button {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.assistant-panel button:hover {
+  background-color: #0056b3;
+}
+
+/* 3D assistant placeholder */
+.assistant-placeholder {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  height: 250px;
+  background: #f3f3f3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #555;
+  font-style: italic;
+}
+
+/* Left area */
+.left-area {
+  width: 75%;
+  min-width: 300px;
+  flex: 1;
+}
+
+/* Search/filter/sort inputs */
+.search-filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.search-filter-container input,
+.search-filter-container select {
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+/* Products container: CSS Grid to prevent overlap */
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 5px;
+}
+
+/* Product wrapper: fixed size */
+.product-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 200px;        /* fixed width */
+  min-width: 200px;    /* prevent shrinking */
+  max-width: 200px;    /* prevent growing */
+  gap: 5px;            /* smaller gap between items inside card */
+}
+
+/* Product image */
+.product-wrapper img {
+  width: 100%;
+  height: 150px;       /* fixed height */
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 5px;  /* smaller margin below image */
+}
+
+
+/* Product card buttons */
+.product-wrapper button {
+  margin-top: 5px;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+
+  /* Fix width */
+  width: auto;           /* Let button fit content */
+  max-width: 100%;       /* Prevent overflowing */
+  align-self: center;    /* Center inside the wrapper */
+}
+
+.product-wrapper button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+/* Cart button */
+.cart-toggle-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+/* Cart panel */
+.cart-panel {
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  width: 300px;
+  max-height: 70vh;
+  overflow-y: auto;
+  padding: 15px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 1100;
+}
+
+/* Clear Cart button */
+.clear-cart-btn {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  border: none;
+  background-color: #dc3545; /* red color for clear */
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.clear-cart-btn:hover {
+  background-color: #c82333;
+}
+
+.cart-panel h2 {
+  margin-top: 0;
+}
+
+/* Payment modal */
+.payment-modal,
+.product-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1200;
+}
+
+.payment-modal-content,
+.product-modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.payment-modal-content button,
+.product-modal-content button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+.payment-modal-content button.pay-btn {
+  background-color: green;
+  color: #fff;
+}
+
+.payment-modal-content button.cancel-btn {
+  background-color: #ccc;
+}
+
+/* Product details modal */
+.product-modal-content img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+/* Add review form */
+.add-review-form {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.add-review-form input,
+.add-review-form textarea,
+.add-review-form select {
+  width: 100%;
+  margin-bottom: 5px;
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.add-review-form button {
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Active role highlight */
+.active-role {
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .main-container {
+    flex-direction: column;
+  }
+  .right-panel {
+    width: 100%;
+    order: -1;
+  }
+  .left-area {
+    width: 100%;
+  }
+}
